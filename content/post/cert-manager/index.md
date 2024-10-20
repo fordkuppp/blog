@@ -2,7 +2,8 @@
 title: Seting up automate SSL certificate with cert-manager
 description: Automate SSL certificate management for Kubernetes with cert-manager
 slug: cert-manager
-date: 2024-08-21 00:00:00+0000
+date: 2024-08-21T00:00:00+0000
+lastmod: "{{ .Lastmod  }}"
 image: cover.jpg
 categories:
     - Example Category
