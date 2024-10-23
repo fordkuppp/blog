@@ -1,5 +1,5 @@
 ---
-title: TEST Seting up automate SSL certificate with cert-manager
+title: Seting up automate SSL certificate with cert-manager
 description: Automate SSL certificate management for Kubernetes with cert-manager
 slug: cert-manager
 date: 2024-08-21T00:00:00+0000
