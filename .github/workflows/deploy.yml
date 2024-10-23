@@ -20,6 +20,13 @@ jobs:
               with:
                   fetch-depth: 0
 
+            - name: Tailscale
+              uses: tailscale/github-action@v2
+              with:
+                oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+                oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+                tags: tag:ci
+                  
             - name: Cache Hugo resources
               uses: actions/cache@v4
               env:
@@ -42,10 +49,21 @@ jobs:
             - name: Build
               run: hugo --minify --gc
 
-            - name: Deploy 🚀
-              uses: JamesIves/github-pages-deploy-action@v4
+            - name: Deploy
+              uses: contention/rsync-deployments@v2.0.0
               with:
-                  branch: gh-pages
-                  folder: public
-                  clean: true
-                  single-commit: true
+                FLAGS: --delete 
+                EXCLUDES: ""
+                USER: fordkuppp
+                HOST: 192.168.1.102
+                LOCALPATH: public/
+                REMOTEPATH: /home/fordkuppp/www
+                DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+                
+            # - name: Deploy 🚀
+            #   uses: JamesIves/github-pages-deploy-action@v4
+            #   with:
+            #       branch: gh-pages
+            #       folder: public
+            #       clean: true
+            #       single-commit: true
