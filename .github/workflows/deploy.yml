@@ -52,14 +52,14 @@ jobs:
             - name: Deploy
               uses: contention/rsync-deployments@v2.0.0
               with:
-                FLAGS: --delete 
+                FLAGS: -avzh --progress --delete 
                 EXCLUDES: ""
                 USER: fordkuppp
                 HOST: 192.168.1.102
                 LOCALPATH: public/
                 REMOTEPATH: /home/fordkuppp/www
                 DEPLOY_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-                
+
             # - name: Deploy 🚀
             #   uses: JamesIves/github-pages-deploy-action@v4
             #   with:
