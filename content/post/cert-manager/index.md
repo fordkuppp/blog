@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Seting up automate SSL certificate with cert-manager
 description: Automate SSL certificate management for Kubernetes with cert-manager
 slug: cert-manager
